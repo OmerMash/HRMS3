@@ -34,13 +34,16 @@ public class HelloController {
     private TextField YOE_tf;
     @FXML
     private Label person_creation_label;
+    @FXML
+    private TextField min_age_tf;
+    @FXML
+    private TextField max_age_tf;
     public Model myModel;
 
-
+//  CONSTRUCTOR
     public HelloController() {
-        //create model object
         try {
-            myModel = new Model("person_ser");
+            myModel = new Model("person_ser");  //create model object
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -49,11 +52,6 @@ public class HelloController {
     public void setAlgoSearch(IAlgoSearch algoSearch) {
         this.algoSearch = algoSearch;
     }
-
-//    public List<Person> personSearch() {
-//        return algoSearch.search();
-//    }
-
 
     @FXML
     protected void onAddButtonClick() throws IOException {
@@ -67,12 +65,29 @@ public class HelloController {
         System.out.println();
         person_creation_label.setText("Person Created");
         myModel.add(p);
-//        myModel.writeReadObject(Boolean.TRUE,p);
     }
+
+    @FXML
+    protected void onSearchByAgeButtonClick(){
+        SearchByAge search_by_age = new SearchByAge();
+        search_by_age.search(myModel.getList(), 5, 50, "DEV");
+    }
+
+}
+
+
+
+
+
+
+
 
 //    @FXML
 //    public void writeListToFile() throws IOException{
 //        myModel.writeObject(l);
 //    }
 
-}
+
+//    public List<Person> personSearch() {
+//        return algoSearch.search();
+//    }

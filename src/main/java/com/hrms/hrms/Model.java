@@ -37,17 +37,35 @@ public class Model implements IDAO {
         }
     }
 
-    public void writeListToFile(List<Person> l) throws IOException {
+    public void writeListToFileFILE(List<Person> l) throws IOException {
         //write to file
-            if(output==null){
-                output = new ObjectOutputStream(Files.newOutputStream(Paths.get("person_ser")));
-                for (Person p : l) {
-                    output.writeObject(p);
-                }
+        output = new ObjectOutputStream(Files.newOutputStream(Paths.get("person_ser")));
+        for (Person p : l) {
+            output.writeObject(p);
             output.close();
         }
     }
 
+    public void writeListToFile(List<Person> l) throws IOException {
+        //write to file
+            output = new ObjectOutputStream(Files.newOutputStream(Paths.get("person_ser")));
+            for (Person p : l) {
+                output.writeObject(p);
+            output.close();
+        }
+    }
+
+//#VERSION1
+//    public void writeListToFile(List<Person> l) throws IOException {
+//        //write to file
+//        if(output==null){
+//            output = new ObjectOutputStream(Files.newOutputStream(Paths.get("person_ser")));
+//            for (Person p : l) {
+//                output.writeObject(p);
+//            }
+//            output.close();
+//        }
+//    }
 
     @Override
     protected void finalize() throws Throwable {

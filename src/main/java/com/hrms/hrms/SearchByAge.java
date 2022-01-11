@@ -3,18 +3,28 @@ package com.hrms.hrms;
 import java.util.ArrayList;
 import java.util.List;
 
- class searchByAge implements IAlgoSearch{
+ public class SearchByAge implements IAlgoSearch{
      @Override
-    public List<Person> search(List<Person> l, int minAge, int maxAge, String profession) {
+    public void search(List<Person> l, int minAge, int maxAge, String profession) {
         List<Person> result = new ArrayList<Person>();
         for(Person p : l){
             if(p.age >= minAge && p.age <= maxAge){
                 result.add(p);
             }
         }
-         return result;
+         System.out.println(result);
     }
 
+//#VERSION1
+//     public List<Person> search(List<Person> l, int minAge, int maxAge, String profession) {
+//         List<Person> result = new ArrayList<Person>();
+//         for(Person p : l){
+//             if(p.age >= minAge && p.age <= maxAge){
+//                 result.add(p);
+//             }
+//         }
+//         return result;
+//     }
 
 //    @Override
 //    public ArrayList<Person> search(List<Person> p) {
