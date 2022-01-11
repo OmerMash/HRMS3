@@ -28,7 +28,7 @@ public class HelloApplication extends Application {
         }
         finally {
             myModel = new Model("person_ser");  //create model object
-            myModel.writeListToFileFILE(myModel.getList());
+            myModel.writeListToFile(myModel.getList());
         }
 
 

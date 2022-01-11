@@ -68,6 +68,11 @@ public class HelloController {
     }
 
     @FXML
+    protected void onExitButtonClick() throws IOException {
+        myModel.writeListToFile(myModel.getList());
+    }
+
+    @FXML
     protected void onSearchByAgeButtonClick(){
         SearchByAge search_by_age = new SearchByAge();
         search_by_age.search(myModel.getList(), 5, 50, "DEV");

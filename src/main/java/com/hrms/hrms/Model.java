@@ -30,30 +30,31 @@ public class Model implements IDAO {
 
     public void add(Person p){
         l.add(p);
-        try {
-            writeListToFile(l);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            writeListToFile(l);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
-    public void writeListToFileFILE(List<Person> l) throws IOException {
-        //write to file
-        output = new ObjectOutputStream(Files.newOutputStream(Paths.get("person_ser")));
-        for (Person p : l) {
-            output.writeObject(p);
-            output.close();
-        }
-    }
+//    public void writeListToFileFILE(List<Person> l) throws IOException {
+//        //write to file
+//        output = new ObjectOutputStream(Files.newOutputStream(Paths.get("person_ser")));
+//        for (Person p : l) {
+//            output.writeObject(p);
+//            output.close();
+//        }
+//    }
 
     public void writeListToFile(List<Person> l) throws IOException {
         //write to file
             output = new ObjectOutputStream(Files.newOutputStream(Paths.get("person_ser")));
             for (Person p : l) {
                 output.writeObject(p);
-            output.close();
         }
+        output.close();
     }
+
 
 //#VERSION1
 //    public void writeListToFile(List<Person> l) throws IOException {
