@@ -39,6 +39,7 @@ public class HelloController {
     @FXML
     private TextField max_age_tf;
     public Model myModel;
+    private List<Person> searchResult;
 
 //  CONSTRUCTOR
     public HelloController() {
@@ -47,10 +48,6 @@ public class HelloController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public void setAlgoSearch(IAlgoSearch algoSearch) {
-        this.algoSearch = algoSearch;
     }
 
     @FXML
@@ -68,14 +65,25 @@ public class HelloController {
     }
 
     @FXML
-    protected void onExitButtonClick() throws IOException {
+    protected void onSearchByAgeButtonClick(){
+        SearchByAge search_by_age = new SearchByAge();
+        searchResult = search_by_age.search(myModel.getList(), 5, 50, "DEV");
+        System.out.println("Search by Age results:" + searchResult );
+    }
+
+    @FXML
+    protected void onSaveButtonClick() throws IOException {
         myModel.writeListToFile(myModel.getList());
     }
 
     @FXML
-    protected void onSearchByAgeButtonClick(){
-        SearchByAge search_by_age = new SearchByAge();
-        search_by_age.search(myModel.getList(), 5, 50, "DEV");
+    protected void onExitAndSaveButtonClick() throws IOException {
+        myModel.writeListToFile(myModel.getList());
+
+    }
+
+    public void setAlgoSearch(IAlgoSearch algoSearch) {
+        this.algoSearch = algoSearch;
     }
 
 }

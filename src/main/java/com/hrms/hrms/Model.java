@@ -12,13 +12,12 @@ public class Model implements IDAO {
     private Object Stream;
     private Object FileContent;
     private List<Person> l = new ArrayList<Person>();
-    String filePath = "filePath";
+    public String fileName = "person_ser";
 
-    public List<Person> getList(){ return l;}
 
     public Model(String fileName) throws IOException {
-        try {
-            input = new ObjectInputStream(Files.newInputStream(Paths.get("person_ser")));
+        try {//read file to input stream and add file content to list
+            input = new ObjectInputStream(Files.newInputStream(Paths.get(fileName)));
             while(true){
                 Person p = (Person) input.readObject();
                 System.out.println(p);
@@ -37,15 +36,6 @@ public class Model implements IDAO {
 //        }
     }
 
-//    public void writeListToFileFILE(List<Person> l) throws IOException {
-//        //write to file
-//        output = new ObjectOutputStream(Files.newOutputStream(Paths.get("person_ser")));
-//        for (Person p : l) {
-//            output.writeObject(p);
-//            output.close();
-//        }
-//    }
-
     public void writeListToFile(List<Person> l) throws IOException {
         //write to file
             output = new ObjectOutputStream(Files.newOutputStream(Paths.get("person_ser")));
@@ -54,6 +44,20 @@ public class Model implements IDAO {
         }
         output.close();
     }
+
+//GETTERS
+    public List<Person> getList(){ return l;}
+
+}
+
+//    public void writeListToFileFILE(List<Person> l) throws IOException {
+//        //write to file
+//        output = new ObjectOutputStream(Files.newOutputStream(Paths.get("person_ser")));
+//        for (Person p : l) {
+//            output.writeObject(p);
+//            output.close();
+//        }
+//    }
 
 
 //#VERSION1
@@ -67,16 +71,6 @@ public class Model implements IDAO {
 //            output.close();
 //        }
 //    }
-
-    @Override
-    protected void finalize() throws Throwable {
-        writeListToFile(l);
-        super.finalize();
-    }
-}
-
-
-
 
 //    public List<String> getListFromFile(String filename, String listName) throws IOException {
 //        List<String> result;

@@ -5,15 +5,17 @@ import java.util.List;
 
  public class SearchByAge implements IAlgoSearch{
      @Override
-    public void search(List<Person> l, int minAge, int maxAge, String profession) {
+    public List<Person> search(List<Person> l, int minAge, int maxAge, String profession) {
         List<Person> result = new ArrayList<Person>();
         for(Person p : l){
             if(p.age >= minAge && p.age <= maxAge){
                 result.add(p);
             }
         }
-         System.out.println(result);
+        return result;
     }
+
+}
 
 //#VERSION1
 //     public List<Person> search(List<Person> l, int minAge, int maxAge, String profession) {
@@ -35,4 +37,3 @@ import java.util.List;
 //        return L1;
 //        return null;
 //    }
-}

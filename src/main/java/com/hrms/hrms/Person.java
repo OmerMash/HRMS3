@@ -27,4 +27,6 @@ public class Person implements Serializable {
         return ID + " " + name + " " + age + " " + profession + " " + experience_y;
     }
 
+    public int getAge(){ return  age; }
+
 }

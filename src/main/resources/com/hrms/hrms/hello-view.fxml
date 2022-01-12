@@ -35,7 +35,7 @@
                <VBox.margin>
                   <Insets />
                </VBox.margin></Button>
-            <Button layoutX="10.0" layoutY="320.0" mnemonicParsing="false" onAction="#onExitButtonClick" text="EXIT" />
+            <Button layoutX="10.0" layoutY="320.0" mnemonicParsing="false" onAction="#onSaveButtonClick" text="Save" />
          </children>
          <BorderPane.margin>
             <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
